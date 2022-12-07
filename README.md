@@ -1,5 +1,10 @@
 # sc_chatting
 
+
+## 🔗Test
+[SC통신 바로가기](http://34.64.87.72:8080)
+
+
 ## Manual
 
 ### 🤖 Before Start
