@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkfrontend"]=self["webpackChunkfrontend"]||[]).push([[348],{6865:function(n,t,a){a.r(t),a.d(t,{default:function(){return v}});var e=a(3396);const r=n=>((0,e.dD)("data-v-e39b29da"),n=n(),(0,e.Cn)(),n),l={class:"chat"},u=r((()=>(0,e._)("hr",null,null,-1))),c=r((()=>(0,e._)("h1",{class:"chatTitle"},"채팅방",-1))),d=r((()=>(0,e._)("hr",null,null,-1))),s=[u,c,d];function f(n,t){return(0,e.wg)(),(0,e.iD)("div",l,s)}var h=a(89);const o={},i=(0,h.Z)(o,[["render",f],["__scopeId","data-v-e39b29da"]]);var v=i}}]);
+//# sourceMappingURL=chat.b78b4ff1.js.map
