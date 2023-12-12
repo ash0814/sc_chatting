@@ -7,7 +7,7 @@ const expressSession = require("express-session");
 var server = require('http').createServer(app);
 var io = require('socket.io')(server, {
   cors: true,
-  origins: ['http://34.64.87.72:8080'],
+  origins: ['http://localhost:8080'],
 });
 
 const mainRouter = require("./routes/main");

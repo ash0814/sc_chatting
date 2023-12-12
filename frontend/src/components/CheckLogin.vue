@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable */
 import router from "@/router";
 import { userData } from "@/store/user";
 import axios from "axios";
@@ -29,7 +30,7 @@ async function loginCheck() {
 
 // socket 서버에 연결
 function socketConnect() {
-  const s_client = io(`http://34.64.87.72:3300`).connect();
+  const s_client = io(`http://localhost:3300`).connect();
   userData.socket = s_client;
 }
 

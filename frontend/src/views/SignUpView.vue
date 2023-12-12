@@ -19,6 +19,7 @@
 </template>
 
 <script lang="ts" setup>
+/* eslint-disable */
 import { useRouter } from "vue-router";
 import { inject, ref } from "vue";
 import axios from "axios";
@@ -39,7 +40,7 @@ async function signUpForm() {
   data.append("nickname", `${name.value}`);
 
   await axios
-    .post("http://34.64.87.72:3300/signup", data, {
+    .post("http://localhost:3300/signup", data, {
       headers: {
         "Content-Type": "application/json",
       },

@@ -14,8 +14,8 @@
           <th>등록일시</th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="row in list" :key="row">
+      <tbody v-if="list.length > 0">
+        <tr v-for="row in list" :key="row.post_id">
           <td>{{ row.post_id }}</td>
           <td>
             <a @click="goPosting(row.post_id)">{{ row.post_title }}</a>
@@ -37,17 +37,28 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable */
 import { userData } from "@/store/user";
-import { ref } from "vue";
+import { ref, inject } from "vue";
 import { useRouter } from "vue-router";
 import ShortCut from "@/components/ShortCut.vue";
 
-const list = ref([]);
+const list = ref([{} as postData]);
 const router = useRouter();
+const inject_alert: any = inject("setAlertOpen");
+
+interface postData {
+  post_id: number;
+  post_name: string;
+  post_title: string;
+  post_create: string;
+  post_type: string;
+  post_writer: number;
+}
 
 function getPostings() {
   userData.instance
-    .get("http://34.64.87.72:3300/board/list")
+    .get("http://localhost:3300/board/list")
     .then(function (res) {
       res.data.forEach((element: any) => {
         if (element.post_type == "info") list.value.push(element);
@@ -59,7 +70,10 @@ function getPostings() {
 }
 
 function goDm(writer: number) {
-  router.push(`/dm/${writer}`);
+  if (writer && writer.toString() == userData.user_id)
+    inject_alert("본인에게는 일대일 대화를 할 수 없습니다!");
+  else if (writer == undefined) return;
+  else router.push(`/dm/${writer}`);
 }
 
 function goUpload() {

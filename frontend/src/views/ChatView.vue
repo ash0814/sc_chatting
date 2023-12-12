@@ -29,12 +29,20 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable */
 import { ref, onMounted, nextTick, inject } from "vue";
 import { userData } from "@/store/user";
 import router from "@/router";
 import ShortCut from "@/components/ShortCut.vue";
 
-const inputMessage = ref([{}]);
+interface message {
+  msg: string;
+  writer: string;
+  s_name: string;
+  idx?: number;
+}
+
+const inputMessage = ref([{} as message]);
 const message = ref();
 const element = ref();
 const checkAvailable: any = inject("setCheckAvailable");
@@ -75,9 +83,9 @@ function goBack() {
 
 function getBeforeData() {
   userData.instance
-    .get("http://34.64.87.72:3300/chat/getMessages")
+    .get("http://localhost:3300/chat/getMessages")
     .then((res) => {
-      res.data.forEach((element: object) => {
+      res.data.forEach((element: any) => {
         inputMessage.value.push({
           msg: element.m_content,
           writer: element.m_sender,

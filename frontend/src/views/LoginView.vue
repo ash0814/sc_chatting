@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable */
 import { useRouter } from "vue-router";
 import axios from "axios";
 import { inject, ref } from "vue";
@@ -31,7 +32,7 @@ function loginForm() {
   data.append("email", `${useremail.value}`);
   data.append("pwd", `${pwd.value}`);
   axios
-    .post("http://34.64.87.72:3300/login/enter", data, {
+    .post("http://localhost:3300/login/enter", data, {
       headers: {
         "Content-Type": "application/json",
       },

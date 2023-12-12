@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable */
 import { ref, inject } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { userData } from "@/store/user";
@@ -52,7 +53,7 @@ function goMenu() {
 getPost();
 function getPost() {
   userData.instance
-    .get(`http://34.64.87.72:3300/board`, {
+    .get(`http://localhost:3300/board`, {
       params: { id: route.params.id },
     })
     .then(function (res) {
@@ -67,7 +68,7 @@ function getPost() {
 
 function sendPost() {
   userData.instance
-    .post("http://34.64.87.72:3300/board/edit", {
+    .post("http://localhost:3300/board/edit", {
       p_id: route.params.id,
       p_title: title.value,
       p_content: content.value,
